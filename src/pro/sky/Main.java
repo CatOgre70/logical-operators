@@ -105,5 +105,47 @@ public class Main {
                         "что пишешь, писатель! :)");
                 return;
         }
+
+        // Task 6. Credit card limit
+
+        int age = 19;
+        double salary = 58_000.0;
+        double creditCardLimit = 0;
+
+        if(age >= 23)
+            creditCardLimit = salary * 3;
+        else
+            creditCardLimit = salary * 2;
+
+        if(salary >= 80_000.0)
+            creditCardLimit *= 1.5;
+        else if(salary >= 50_000.0 && salary < 80_000.0)
+            creditCardLimit *= 1.2;
+
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + creditCardLimit + " рублей");
+
+        // Task 7. Bank loan
+
+        age = 25;
+        salary = 60_000.0;
+        double wantedSum = 330_000;
+        double bankInterest = 10;
+
+        if(salary >= 80_000.0)
+            bankInterest -= 0.7;
+        if(age < 23){
+            bankInterest += 1.0;
+        } else if(age >= 23 && age < 30) {
+            bankInterest += 0.5;
+        }
+
+        double monthlyPayment = (wantedSum * (1 + bankInterest/100))/12;
+        System.out.print("Максимальный платеж при ЗП " + salary + " равен " + salary/2
+                + " Платеж по кредиту " + monthlyPayment+ " рублей. ");
+        if(monthlyPayment > salary/2)
+            System.out.println("Отказано");
+        else
+            System.out.println("Одобрено");
+
     }
 }
